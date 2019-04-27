@@ -1,0 +1,14 @@
+D:\Programming\Projects\Online-Johari-Window-Project\WindowsPC-client\WindowsPC-client\bin\Debug\WindowsPC-client.exe.config
+D:\Programming\Projects\Online-Johari-Window-Project\WindowsPC-client\WindowsPC-client\bin\Debug\WindowsPC-client.exe
+D:\Programming\Projects\Online-Johari-Window-Project\WindowsPC-client\WindowsPC-client\bin\Debug\WindowsPC-client.pdb
+D:\Programming\Projects\Online-Johari-Window-Project\WindowsPC-client\WindowsPC-client\obj\Debug\WindowsPC-client.csprojAssemblyReference.cache
+D:\Programming\Projects\Online-Johari-Window-Project\WindowsPC-client\WindowsPC-client\obj\Debug\WindowsPC_client.new_form.resources
+D:\Programming\Projects\Online-Johari-Window-Project\WindowsPC-client\WindowsPC-client\obj\Debug\WindowsPC_client.Properties.Resources.resources
+D:\Programming\Projects\Online-Johari-Window-Project\WindowsPC-client\WindowsPC-client\obj\Debug\WindowsPC-client.csproj.GenerateResource.cache
+D:\Programming\Projects\Online-Johari-Window-Project\WindowsPC-client\WindowsPC-client\obj\Debug\WindowsPC-client.csproj.CoreCompileInputs.cache
+D:\Programming\Projects\Online-Johari-Window-Project\WindowsPC-client\WindowsPC-client\obj\Debug\WindowsPC-client.exe
+D:\Programming\Projects\Online-Johari-Window-Project\WindowsPC-client\WindowsPC-client\obj\Debug\WindowsPC-client.pdb
+D:\Programming\Projects\Online-Johari-Window-Project\WindowsPC-client\WindowsPC-client\bin\Debug\Newtonsoft.Json.dll
+D:\Programming\Projects\Online-Johari-Window-Project\WindowsPC-client\WindowsPC-client\bin\Debug\Newtonsoft.Json.xml
+D:\Programming\Projects\Online-Johari-Window-Project\WindowsPC-client\WindowsPC-client\obj\Debug\WindowsPC-client.csproj.CopyComplete
+D:\Programming\Projects\Online-Johari-Window-Project\WindowsPC-client\WindowsPC-client\obj\Debug\WindowsPC_client.reply_form.resources

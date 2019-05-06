@@ -8,12 +8,12 @@
         $conn = mysqli_connect( $dbconfig["host"], $dbconfig["user"], $dbconfig["passwd"]);
         if (empty($conn)){
             print mysqli_error($conn);
-            die ("無法連結資料庫");
+            die ("{\"success\":\"false\",\"error\":\"Can not connect to database.\",\"coding\":\"unicode\"}");
             exit;
         }
 
         if( !mysqli_select_db($conn, $dbconfig["name"])) {
-            die ("無法選擇資料庫");
+            die ("{\"success\":\"false\",\"error\":\"Batabase setting error.\",\"coding\":\"unicode\"}");
         }
 
         // 設定連線編碼
@@ -80,7 +80,7 @@
 
     if ($_GET['token']) {
         $token =  $_GET['token'];
-	    print(Process(GetResult($token,"user",$dbconfig),GetResult($token,"result",$dbconfig),$token));
+	    print(htmlspecialchars(Process(GetResult($token,"user",$dbconfig),GetResult($token,"result",$dbconfig),$token)));//htmlspecialchars 防範 XSS
     } else {
         exit("{\"success\":\"false\",\"error\":\"Arguments error.\",\"coding\":\"unicode\"}");
     };

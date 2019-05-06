@@ -9,12 +9,12 @@
         $conn = mysqli_connect( $dbconfig["host"], $dbconfig["user"], $dbconfig["passwd"]);
         if (empty($conn)){
             print mysqli_error($conn);
-            die ("無法連結資料庫");
+            die ("{\"success\":\"false\",\"error\":\"Can not connect to database.\",\"coding\":\"unicode\"}");
             exit;
         }
 
         if( !mysqli_select_db($conn, $dbconfig["name"])) {
-            die ("無法選擇資料庫");
+            die ("{\"success\":\"false\",\"error\":\"Batabase setting error.\",\"coding\":\"unicode\"}");
         }
 
         // 設定連線編碼
@@ -23,6 +23,8 @@
         mysqli_query($conn, "SELECT * FROM `user`");
 
         $sql = "INSERT INTO `user` (`id`, `create_time`, `token`, `nickname`, `traits`) VALUES (NULL, CURRENT_TIMESTAMP, '$token', '$nickname', '$_trait');";
+        $sql_result = "INSERT INTO `result` (`id`, `token`) VALUES (NULL, '$token');";
+        $new_result = mysqli_query($conn, $sql_result);
         $result = mysqli_query($conn, $sql);
         mysqli_close($conn);
     }

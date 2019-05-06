@@ -6,22 +6,27 @@
 ### 新增使用者
 ```/POST /new```
 ```
-data: 
-    nickname(string)    
-    trait(JSON list)
+data:{
+    nickname:string,  
+    trait:JSON-LIST
+}
 ```
 
 ### 用戶回應
 ```/POST /add```
 ```
-data: 
-    token(string)    
-    trait(JSON list)
+data:{
+    token:string,  
+    trait:JSON-LIST
+}
 ```
 
 ### 取得結果
 ```/POST /result```
 ```
-data: 
-    token(string)    
+data:{
+    token:string    
+}
 ```
+
+### Config.php

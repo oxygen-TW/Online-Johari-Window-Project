@@ -1,6 +1,6 @@
 # Online Johari Window Project
 
-## 分工
+## 分工表
 - 醫技一 劉子豪 後端程式設計
 - 醫技一 尤偉杰 前端程式設計
 - 心理一 鍾侑廷 前端設計助手
@@ -43,7 +43,7 @@
 <br/>
 
 ## Backend Documents
-https://github.com/oxygen-TW/Online-Johari-Window-Project/blob/master/api%20document.md
+https://github.com/oxygen-TW/Online-Johari-Window-Project/blob/master/api_v1/api%20document.md
 
 <br/>
 

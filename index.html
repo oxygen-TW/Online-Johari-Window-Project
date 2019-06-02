@@ -10,8 +10,14 @@
 
 <body class="stackedit">
   <div class="stackedit__html"><h1 id="api-v1-document">API v1 Document</h1>
-<h2 id="api-endpoint">API Endpoint</h2>
+<h3 id="api-endpoint">API Endpoint</h3>
 <p><code>https://csmu.oxygentw.net/tools/ap-apiv1</code></p>
+<blockquote>
+<p>注意 送到API的資料必須全部使用半形引號<code>"</code>  <strong>而非全形</strong><code>”</code>  <br></p>
+</blockquote>
+<blockquote>
+<p>送入錯誤字元會導致資料比對出現<code>null</code></p>
+</blockquote>
 <h2 id="新增使用者">新增使用者</h2>
 <p><code>/POST /new</code></p>
 <pre><code>
@@ -24,6 +30,17 @@ trait:JSON-LIST
 }
 
 </code></pre>
+<p>Example:</p>
+<pre><code>
+data:{
+
+nickname:"USER124",
+
+trait:["開朗","樂觀"]
+
+}
+
+</code></pre>
 <h2 id="用戶回應">用戶回應</h2>
 <p><code>/POST /add</code></p>
 <pre><code>
@@ -32,6 +49,17 @@ data:{
 token:string,
 
 trait:JSON-LIST
+
+}
+
+</code></pre>
+<p>Example:</p>
+<pre><code>
+data:{
+
+token:"86e1507e5d6a666e24a91e269833d858",
+
+trait:["壓抑","悲觀"]
 
 }
 

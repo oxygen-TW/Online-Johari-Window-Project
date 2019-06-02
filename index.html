@@ -11,15 +11,17 @@
 <body class="stackedit">
   <div class="stackedit__html"><h1 id="api-v1-document">API v1 Document</h1>
 <h3 id="api-endpoint">API Endpoint</h3>
-<p><code>https://csmu.oxygentw.net/tools/ap-apiv1</code></p>
+<p><code>http://csmu.oxygentw.net/tools/ap-apiv1</code></p>
 <blockquote>
 <p>注意 送到API的資料必須全部使用半形引號<code>"</code>  <strong>而非全形</strong><code>”</code>  <br></p>
 </blockquote>
 <blockquote>
 <p>送入錯誤字元會導致資料比對出現<code>null</code></p>
 </blockquote>
+<hr>
+<br>
 <h2 id="新增使用者">新增使用者</h2>
-<p><code>/POST /new</code></p>
+<p><code>/POST /new/</code></p>
 <pre><code>
 data:{
 
@@ -41,8 +43,19 @@ trait:["開朗","樂觀"]
 }
 
 </code></pre>
+<p>Response:</p>
+<pre><code>
+{"success":"true","token":"ec6dc5b250d6c282014f67bb62be5aea","coding":"unicode"}
+
+</code></pre>
+<ul>
+<li>success: true/false | 請求是否成功</li>
+<li>token: string | 系統回應的 token</li>
+<li>coding: string | API回應採用的編碼</li>
+</ul>
+<br>
 <h2 id="用戶回應">用戶回應</h2>
-<p><code>/POST /add</code></p>
+<p><code>/POST /add/</code></p>
 <pre><code>
 data:{
 
@@ -64,8 +77,19 @@ trait:["壓抑","悲觀"]
 }
 
 </code></pre>
+<p>Response:</p>
+<pre><code>
+{"success":"true","token":"ec6dc5b250d6c282014f67bb62be5aea","coding":"unicode"}
+
+</code></pre>
+<ul>
+<li>success: true/false | 請求是否成功</li>
+<li>token: string | 成功寫入資料的 token</li>
+<li>coding: string | API回應採用的編碼</li>
+</ul>
+<br>
 <h2 id="取得結果">取得結果</h2>
-<p><code>/POST /result</code></p>
+<p><code>/POST /result/</code></p>
 <pre><code>
 data:{
 
@@ -74,25 +98,33 @@ token:string
 }
 
 </code></pre>
+<p>Response:</p>
+<pre><code>
+{"success":"true","token":"ec6dc5b250d6c282014f67bb62be5aea","coding":"unicode","openMe":[],"hiddenMe":["開朗","樂觀"],"cantSeeMe":["悲觀","壓抑"],"unknownMe":""}
+
+</code></pre>
+<ul>
+<li>success: true/false | 請求是否成功</li>
+<li>token: string | 系統回應的 token</li>
+<li>coding: string | API回應採用的編碼</li>
+<li>openMe: JSON-LIST | 該 token 的開放我</li>
+<li>hiddenMe: JSON-LIST | 該 token 的隱藏我</li>
+<li>cantSeeMe: JSON-LIST | 該 token 的盲目我</li>
+<li>unknownMe: JSON-LIST | 該 token 的未知我</li>
+</ul>
+<br>
 <h2 id="config.php">Config.php</h2>
 <blockquote>
-<p>將 <code>config.php.example</code> 修改並改名為 <code>config.php</code> 移動到 api 目錄</p>
+<p>將 <code>config.php.example</code> 內容修改並改名為 <code>config.php</code> 移動到 api 的上層目錄</p>
 </blockquote>
 <pre class=" language-php"><code class="prism  language-php">
 <span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
-
 <span class="token variable">$dbconfig</span><span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
-
-<span class="token string">"name"</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">"DBNAME"</span><span class="token punctuation">,</span>
-
-<span class="token string">"user"</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">"USERNAME"</span><span class="token punctuation">,</span>
-
-<span class="token string">"passwd"</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">"DBPASSWORD"</span><span class="token punctuation">,</span>
-
-<span class="token string">"host"</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">"DBHOST"</span>
-
+	<span class="token string">"name"</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">"DBNAME"</span><span class="token punctuation">,</span>
+	<span class="token string">"user"</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">"USERNAME"</span><span class="token punctuation">,</span>
+	<span class="token string">"passwd"</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">"DBPASSWORD"</span><span class="token punctuation">,</span>
+	<span class="token string">"host"</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">"DBHOST"</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
-
 <span class="token delimiter important">?&gt;</span></span>
 
 </code></pre>

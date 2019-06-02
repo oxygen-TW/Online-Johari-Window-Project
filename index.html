@@ -1,36 +1,74 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>NEW</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
 
-    <script>
-        function _click() {
-            
-        }
-    </script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online-Johari-Window-Project api v1</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
 </head>
-<body>
-        <DIV style="MARGIN-BOTTOM: 0pt; VERTICAL-ALIGN: baseline; unicode-bidi: embed; DIRECTION: ltr; TEXT-ALIGN: left; MARGIN-LEFT: 0.38in; MARGIN-TOP: 10pt; TEXT-INDENT: -0.38in; language: zh-TW; mso-line-break-override: none; punctuation-wrap: hanging"><SPAN style="FONT-SIZE: 28pt"><SPAN style='FONT-SIZE: 80%; FONT-FAMILY: "Wingdings 3"; COLOR: #90c226; mso-special-format: bullet; mso-color-index: 4'>u</SPAN></SPAN><SPAN style='FONT-SIZE: 24px; FONT-FAMILY: 微軟正黑體; FONT-WEIGHT: bold; COLOR: #0070c0; mso-ascii-font-family: "Trebuchet MS"; mso-bidi-font-family: +mn-cs; mso-font-kerning: 12.0pt; mso-fareast-font-family: 微軟正黑體; language: zh-TW; mso-ascii-theme-font: minor-latin; mso-fareast-theme-font: minor-fareast; mso-bidi-theme-font: minor-bidi; mso-style-textfill-type: solid; mso-style-textfill-fill-color: #0070C0; mso-style-textfill-fill-alpha: 100.0%'>
-    <form action="http://127.0.0.1/ap/new.php" method="POST">
-        <input type="text" name="nickname">
-        <input type="text" name="trait">
-        <input type="submit" onclick="_click();">
-    </form>
-    ---
-    <form action="http://127.0.0.1/ap/add.php" method="POST">
-        <input type="text" name="token">
-        <input type="text" name="trait">
-        <input type="submit" onclick="_click();">
-    </form>
-    ---
-    <form action="http://127.0.0.1/ap/result.php" method="GET">
-        <input type="text" name="token">
-        <input type="submit" onclick="_click();">
-    </form>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="api-v1-document">API v1 Document</h1>
+<h2 id="api-endpoint">API Endpoint</h2>
+<p><code>https://csmu.oxygentw.net/tools/ap-apiv1</code></p>
+<h2 id="新增使用者">新增使用者</h2>
+<p><code>/POST /new</code></p>
+<pre><code>
+data:{
+
+nickname:string,
+
+trait:JSON-LIST
+
+}
+
+</code></pre>
+<h2 id="用戶回應">用戶回應</h2>
+<p><code>/POST /add</code></p>
+<pre><code>
+data:{
+
+token:string,
+
+trait:JSON-LIST
+
+}
+
+</code></pre>
+<h2 id="取得結果">取得結果</h2>
+<p><code>/POST /result</code></p>
+<pre><code>
+data:{
+
+token:string
+
+}
+
+</code></pre>
+<h2 id="config.php">Config.php</h2>
+<blockquote>
+<p>將 <code>config.php.example</code> 修改並改名為 <code>config.php</code> 移動到 api 目錄</p>
+</blockquote>
+<pre class=" language-php"><code class="prism  language-php">
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token variable">$dbconfig</span><span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+
+<span class="token string">"name"</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">"DBNAME"</span><span class="token punctuation">,</span>
+
+<span class="token string">"user"</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">"USERNAME"</span><span class="token punctuation">,</span>
+
+<span class="token string">"passwd"</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">"DBPASSWORD"</span><span class="token punctuation">,</span>
+
+<span class="token string">"host"</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">"DBHOST"</span>
+
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token delimiter important">?&gt;</span></span>
+
+</code></pre>
+</div>
 </body>
+
 </html>

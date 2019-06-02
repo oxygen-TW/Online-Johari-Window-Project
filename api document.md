@@ -1,9 +1,9 @@
-## API Document
+# API v1 Document
 
-### API Endpoint
-``` https://home.oxygentw.net/tools/ap-api ```
+## API Endpoint
+``` https://csmu.oxygentw.net/tools/ap-apiv1 ```
 
-### 新增使用者
+## 新增使用者
 ```/POST /new```
 ```
 data:{
@@ -12,7 +12,7 @@ data:{
 }
 ```
 
-### 用戶回應
+## 用戶回應
 ```/POST /add```
 ```
 data:{
@@ -21,7 +21,7 @@ data:{
 }
 ```
 
-### 取得結果
+## 取得結果
 ```/POST /result```
 ```
 data:{
@@ -29,4 +29,15 @@ data:{
 }
 ```
 
-### Config.php
+## Config.php
+> 將 `config.php.example` 修改並改名為 `config.php` 移動到 api 目錄
+```php
+<?php
+$dbconfig= array(
+	"name"=>"DBNAME",
+	"user"=>"USERNAME",
+	"passwd"=>"DBPASSWORD",
+	"host"=>"DBHOST"
+	);
+?>
+```

@@ -92,6 +92,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button63 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // submitBtn
@@ -793,11 +794,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.traitButton_Click);
             // 
+            // button63
+            // 
+            this.button63.Location = new System.Drawing.Point(632, 89);
+            this.button63.Name = "button63";
+            this.button63.Size = new System.Drawing.Size(75, 23);
+            this.button63.TabIndex = 128;
+            this.button63.Text = "button63";
+            this.button63.UseVisualStyleBackColor = true;
+            this.button63.Click += new System.EventHandler(this.button63_Click);
+            // 
             // reply_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 450);
+            this.Controls.Add(this.button63);
             this.Controls.Add(this.submitBtn);
             this.Controls.Add(this.button61);
             this.Controls.Add(this.button62);
@@ -935,5 +947,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button63;
     }
 }

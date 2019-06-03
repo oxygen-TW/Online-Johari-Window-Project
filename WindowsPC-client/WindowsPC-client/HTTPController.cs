@@ -11,9 +11,9 @@ namespace WindowsPC_client
 {
     class HTTPController
     {
-        private string APIEndpoint_NEW = "http://127.0.0.1/ap/new.php";
-        private string APIEndpoint_ADD = "http://127.0.0.1/ap/add.php";
-        private string APIEndpoint_READ = "http://127.0.0.1/ap/result.php";
+        private string APIEndpoint_NEW = "http://csmu.oxygentw.net/tools/ap-apiv1/new/";
+        private string APIEndpoint_ADD = "http://csmu.oxygentw.net/tools/ap-apiv1/add/";
+        private string APIEndpoint_READ = "http://csmu.oxygentw.net/tools/ap-apiv1/result/";
 
         public string NewUser(string nickname,string trait)
         {
@@ -29,7 +29,7 @@ namespace WindowsPC_client
 
             //Console.WriteLine(postParams.ToString());// 將取得"version=1.0&action=preserveCodeCheck&pCode=pCode&TxID=guid&appId=appId", key和value會自動UrlEncode
             //要發送的字串轉為byte[] 
-            byte[] byteArray = Encoding.UTF8.GetBytes(postParams.ToString());
+            byte[] byteArray = Encoding.UTF8.GetBytes(postParams.ToString().Replace('%', '\\'));
             using (Stream reqStream = request.GetRequestStream())
             {
                 reqStream.Write(byteArray, 0, byteArray.Length);

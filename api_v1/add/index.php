@@ -1,7 +1,8 @@
 <?php
-    include_once "config.php";
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+    include_once "../config.php";
+    //error_reporting(E_ALL);
+    //ini_set('display_errors', 1);
+    header('Access-Control-Allow-Origin:*'); 
 
     function UpdateMysql($token, $_trait, $dbconfig){
 
@@ -28,9 +29,11 @@
         $update_sql  = "UPDATE `result` SET `count` = `count` + 1 WHERE `result`.`token` = '$token'";
         mysqli_query($conn, $update_sql);
 	
+	//print_r($_trait);
         foreach ($trait_arr as $value) {
             $sql = "UPDATE `result` SET `$value` = `$value` + 1 WHERE `result`.`token` = '$token'";
-            //print($sql);
+            //echo "IN";
+	    //print($sql);
             $result = mysqli_query($conn, $sql);
         }
 	

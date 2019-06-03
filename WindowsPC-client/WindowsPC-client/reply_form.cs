@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 
@@ -59,6 +54,14 @@ namespace WindowsPC_client
                 MessageBox.Show((string)result.token, "ok", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine((string)result.token);
             }
+        }
+
+        private void button63_Click(object sender, EventArgs e)
+        {
+            new_form nf = new new_form();//產生Form2的物件，才可以使用它所提供的Method
+
+            this.Visible = false;//將Form1隱藏。由於在Form1的程式碼內使用this，所以this為Form1的物件本身
+            nf.Visible = true;//顯示第二個視窗
         }
     }
 }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>OJWP dev page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+
+    <script>
+        function _click() {
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1 style="font-family:Microsoft JhengHei;">Online Johari Window Project dev Page</h1>
+    <h2 style="font-family:Microsoft JhengHei;">創建用戶</h2>
+    <form action="http://csmu.oxygentw.net/tools/ap-apiv1/new/" method="POST">
+        <input type="text" name="nickname">
+        <input type="text" name="trait">
+        <input type="submit" onclick="_click();">
+    </form>
+
+    <h2 style="font-family:Microsoft JhengHei;">新增回應</h2>
+    <form action="http://csmu.oxygentw.net/tools/ap-apiv1/add/" method="POST">
+        <input type="text" name="token">
+        <input type="text" name="trait">
+        <input type="submit" onclick="_click();">
+    </form>
+
+    <h2 style="font-family:Microsoft JhengHei;">查看回應</h2>
+    <form action="http://csmu.oxygentw.net/tools/ap-apiv1/result/" method="GET">
+        <input type="text" name="token">
+        <input type="submit" onclick="_click();">
+    </form>
+</body>
+
+<br/>
+<a href="http://csmu.oxygentw.net/tools/ap-apiv1/" target="_blank">API v1 document link</a>
+</html>

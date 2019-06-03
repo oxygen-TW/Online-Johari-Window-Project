@@ -50,8 +50,8 @@ namespace WindowsPC_client
 
             string jsonData = JsonConvert.SerializeObject(TraitList);
             Console.WriteLine(jsonData);
-            string resultJson = HC.NewUser(nickname_Inputbox.Text, jsonData);
 
+            string resultJson = HC.NewUser(nickname_Inputbox.Text, jsonData);
             dynamic result = JsonConvert.DeserializeObject(resultJson);
             if (result.success != "true")
             {
@@ -59,7 +59,7 @@ namespace WindowsPC_client
             }
             else
             {
-                MessageBox.Show((string)result.token, "ok", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ShowURLtextbox.Text = (string)result.token;
                 Console.WriteLine((string)result.token);
             }
         }

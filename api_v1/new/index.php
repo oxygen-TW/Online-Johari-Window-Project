@@ -1,10 +1,11 @@
 <?php
-    include_once "config.php";
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+    include_once "../config.php";
+    //error_reporting(E_ALL);
+    //ini_set('display_errors', 1);
+    header('Access-Control-Allow-Origin:*'); 
 
     function Mysql($nickname, $token, $_trait, $dbconfig){
-	    $token = md5(uniqid (rand()));
+	//$token = md5(uniqid (rand()));
 
         $conn = mysqli_connect( $dbconfig["host"], $dbconfig["user"], $dbconfig["passwd"]);
         if (empty($conn)){

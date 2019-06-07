@@ -37,11 +37,6 @@
 
 <br/>
 
-## 其他資料
-專案 GitHub: https://github.com/oxygen-TW/Online-Johari-Window-Project
-
-<br/>
-
 ## Backend Documents
 https://github.com/oxygen-TW/Online-Johari-Window-Project/blob/master/api_v1/api%20document.md
 

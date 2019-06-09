@@ -27,7 +27,7 @@ function getCookie(cname){
 
 <style>
 body{
-background-image:url( 'http://localhost/Picture/下載.jpg' );
+background-image:url( 'Picture/下載.jpg' );
 background-repeat:no-repeat;
 background-attachment:local;
 background-position: center ;
@@ -228,7 +228,7 @@ x.addEventListener("click", makeRequest);
       }
     }
 }
-  t_Request.open("POST","http://csmu.oxygentw.net/tools/ap-apiv1/add/"/*"http://localhost/api/add.php"*/,true);
+  t_Request.open("POST","http://csmu.oxygentw.net/tools/ap-apiv1/add/"/*"api/add.php"*/,true);
   t_Request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	var myJSON =  JSON.stringify(test);
     var O_token=getCookie("_token");

@@ -1,0 +1,151 @@
+<html>
+<head>
+	<!-- Tocas UI：CSS 與元件 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
+<!-- Tocas JS：模塊與 JavaScript 函式 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
+<!--https://i.pinimg.com/originals/9f/50/aa/9f50aa820d871667d69a7e34c68714c5.jpg-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style>
+			div.Hidden {display:none;}
+			div.Appear {display:block;}
+			body{
+			
+			background-image:url( 'http://localhost/Picture/S__7438640.jpg' );
+			background-repeat:no-repeat;
+			background-attachment:local;
+			background-position: center;
+			background-size:cover;
+			}
+			</style>
+</head>
+<head>
+	<script>
+function CopyTextToClipboard(){
+	var clip_area = document.createElement('textarea');
+  clip_area.textContent = getCookie("_token");
+/*var TextRange = document.createRange();
+
+TextRange.selectNode(document.getElementById(id));
+sel = window.getSelection();
+
+   sel.removeAllRanges();
+
+   sel.addRange(TextRange);
+
+document.execCommand("copy");*/
+
+document.body.appendChild(clip_area);
+  clip_area.select();
+    
+  document.execCommand('copy');
+  clip_area.remove();
+
+
+alert("複製完成！")  //此行可加可不加
+
+}
+
+		function getCookie(cname){
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i=0; i<ca.length; i++) {
+				var c = ca[i].trim();
+				if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+			}
+			return "";
+		}
+		function checkCookie(){
+			var token=getCookie("_token");
+			if (token!="" && token!=null){
+				alert("請妥善保管您的_token" );
+				document.getElementById("Content").innerHTML ='<details class="ts accordion" open ><summary><i class="dropdown icon"></i> 您的代碼</summary><div class="content">'+token+'</div></details>';
+				document.getElementById("Snack_bar").className="ts active snackbar";
+				document.getElementById("Header").innerHTML="恭喜！";
+			}
+			else{
+				document.getElementById("Content").innerHTML ="請重新嘗試或聯繫我們!";
+				document.getElementById("Header").innerHTML="錯誤！";
+				document.getElementById("Back").innerHTML ='<button class="ts pulsing button" name="Submit" onclick="javascript:history.back(-1);">返回上一頁</button>';
+				   alert("發生問題!");
+				   document.getElementById("Snack_bar").className="Hidden";
+					 }
+	}
+	</script>
+</head>
+	
+<body>	
+		<div class="ts grid">
+				<div class="fifteen column row"><div class="column"></div></div>
+						<div class="fifteen column row">
+			<div class="column">
+<div class="ts  steps">
+		<div class="step">
+			<i class="write icon"></i>
+			<div class="content">
+				<div class="title">填寫</div>
+				<div class="description">周哈里窗表單</div>
+			</div>
+		</div>
+		<div class="active step">
+			<i class="clone icon"></i>
+			<div class="content">
+				<div class="title">複製</div>
+				<div class="description">請記住代碼</div>
+			</div>
+		</div>
+		<div class="disabled step">
+			<i class="search icon"></i>
+			<div class="content">
+				<div class="title">查詢</div>
+				<div class="description">貼上您的代碼</div>
+			</div>
+		</div>
+		<div class="disabled step">
+				<i class="add user icon"></i>
+				<div class="content">
+					<div class="title">他人填寫</div>
+					<div class="description">請您的好友或家人為您填寫</div>
+				</div>
+			</div>
+			<div class="disabled step">
+					<i class="info icon"></i>
+					<div class="content">
+						<div class="title">結果</div>
+						<div class="description">觀看您的結果</div>
+					</div>
+				</div>	
+	</div>
+</div>
+</div>
+</div>
+		<table width="1450" height="550">
+				　<tr><td align="center" valign="center">
+<div class="ts center aligned three column grid">
+<div class="column"></div>
+<div class="column">	
+	<div class="ts inverted positive message">
+    <div class="header"><p  id="Header">恭喜！</p></div>
+    <p id="Content"></p>
+	<p id="Back"></p>
+	</div>
+</div>
+</div>
+</td></tr>
+</table>
+
+	<div class="ts active snackbar" id="Snack_bar">
+				<div class="content">
+					複製代碼後請至*搜尋*貼上
+				</div>
+				<a class="primary action" onclick="CopyTextToClipboard()">複製</a>
+			</div>
+
+<script>
+checkCookie();
+</script>
+
+</body>
+	
+</html>
+

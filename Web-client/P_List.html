@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+	<script>
+		function getToken(S) {
+			var c = S.trim();
+			var n = c.indexOf("token");
+			if (Boolean(n) == true) { return c.substring((n + 8), (n + 40)); }
+			else {
+				return "";
+			}
+		}
+		function checkToken(input) {
+			var token = getToken(input);
+			if (token != "" && token != null) {
+				setCookie("_token", token, 5);
+				alert("設立成功!")
+			}
+			else {
+				document.getElementById("test").innerHTML = "抱歉!無法建立您的_token";
+				alert("抱歉!無法建立您的_token");
+			}
+		}
+		function setCookie(cname, cvalue, exdays) {
+			var d = new Date();
+			d.setTime(d.getTime() + (exdays * 60 * 1000));
+			var expires = "expires=" + d.toGMTString();
+			document.cookie = cname + "=" + cvalue + "; " + expires;
+		}
+	</script>
+	<!-- Tocas UI：CSS 與元件 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
+	<!-- Tocas JS：模塊與 JavaScript 函式 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
+
+	<meta charset="utf-8">
+
+	<style>
+		.ts button{
+			width:100px;
+			height:40px;
+			font-family: "Microsoft JhengHei";
+		}
+	
+	</style>
+</head>
+
+<head>
+
+	<style>
+		body {
+			background-image: url('http://localhost/Picture/P_List.jpg');
+			background-repeat: no-repeat;
+			background-attachment: local;
+			background-position: center bottom;
+			background-size: cover;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="ts grid">
+		<div class="fifteen column row">
+			<div class="column"></div>
+		</div>
+		<div class="fifteen column row">
+			<div class="column">
+				<div class="ts steps">
+					<div class="step">
+						<i class="write icon"></i>
+						<div class="content">
+							<div class="title">填寫</div>
+							<div class="description">周哈里窗表單</div>
+						</div>
+					</div>
+					<div class="disabled  step">
+						<i class="clone icon"></i>
+						<div class="content">
+							<div class="title">複製</div>
+							<div class="description">請記住代碼</div>
+						</div>
+					</div>
+					<div class="disabled  step">
+						<i class="search icon"></i>
+						<div class="content">
+							<div class="title">查詢</div>
+							<div class="description">貼上您的代碼</div>
+						</div>
+					</div>
+					<div class="disabled  step">
+						<i class="add user icon"></i>
+						<div class="content">
+							<div class="title">他人填寫</div>
+							<div class="description">請您的好友或家人為您填寫</div>
+						</div>
+					</div>
+					<div class="disabled step">
+						<i class="info icon"></i>
+						<div class="content">
+							<div class="title">結果</div>
+							<div class="description">觀看您的結果</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ts grid">
+		<div class="three wide column"></div>
+		<div class="eleven wide column">
+			<table style="border-width:3px;
+		border-style:dashed;
+		border-top-style:hidden; border-bottom-style:hidden;
+		border-color:#FFD382;" cellpadding="10" border='1'>
+				<tr>
+					<td>
+						<div class="ts grid">
+							<div class="row">
+								<div class="six wide column"></div>
+								<div class="five wide column">
+									<h1 style="font-family: Microsoft JhengHei;color:#d200d2;">周哈里窗表單</h1>
+								</div>
+							</div>
+							<div class="five column row">
+								<div class="center aligned column"><button class="ts button" id='善表達'
+										onclick="check('善表達')">善表達</button></div>
+								<div class="center aligned column"><button class="ts button" id='愛冒險'
+										onclick="check('愛冒險')">愛冒險</button></div>
+								<div class="center aligned column"><button class="ts button" id='浪漫'
+										onclick="check('浪漫')">浪漫</button></div>
+								<div class="center aligned column"><button class="ts button" id='體貼'
+										onclick="check('體貼')">體貼</button></div>
+								<div class="center aligned column"><button class="ts button" id='勇敢'
+										onclick="check('勇敢')">勇敢</button></div>
+							</div>
+							<div class="five column row">
+								<div class="center aligned column"><button class="ts button" id='念舊'
+										onclick="check('念舊')">念舊</button></div>
+								<div class="center aligned column"><button class="ts button" id='衝動'
+										onclick="check('衝動')">衝動</button></div>
+								<div class="center aligned column"><button class="ts button" id='友善'
+										onclick="check('友善')">友善</button></div>
+								<div class="center aligned column"><button class="ts button" id='善良'
+										onclick="check('善良')">善良</button></div>
+								<div class="center aligned column"><button class="ts button" id='夢幻'
+										onclick="check('夢幻')">夢幻</button></div>
+							</div>
+							<div class="five column row">
+								<div class="center aligned column"><button class="ts button" id='真誠'
+										onclick="check('真誠')">真誠</button></div>
+								<div class="center aligned column"><button class="ts button" id='有愛心'
+										onclick="check('有愛心')">有愛心</button></div>
+								<div class="center aligned column"><button class="ts button" id='樂於助人'
+										onclick="check('樂於助人')">樂於助人</button></div>
+								<div class="center aligned column"><button class="ts button" id='慷慨'
+										onclick="check('慷慨')">慷慨</button></div>
+								<div class="center aligned column"><button class="ts button" id='果斷'
+										onclick="check('果斷')">果斷</button></div>
+							</div>
+							<div class="five column row">
+								<div class="center aligned column"><button class="ts button" id='有正義感'
+										onclick="check('有正義感')">有正義感</button></div>
+								<div class="center aligned column"><button class="ts button" id='活潑'
+										onclick="check('活潑')">活潑</button></div>
+								<div class="center aligned column"><button class="ts button" id='合群'
+										onclick="check('合群')">合群</button></div>
+								<div class="center aligned column"><button class="ts button" id='不切實際'
+										onclick="check('不切實際')">不切實際</button></div>
+								<div class="center aligned column"><button class="ts button" id='重感情'
+										onclick="check('重感情')">重感情</button></div>
+							</div>
+							<div class="five column row">
+								<div class="center aligned column"><button class="ts button" id='有創意'
+										onclick="check('有創意')">有創意</button></div>
+								<div class="center aligned column"><button class="ts button" id='富想像力'
+										onclick="check('富想像力')">富想像力</button></div>
+								<div class="center aligned column"><button class="ts button" id='情緒化'
+										onclick="check('情緒化')">情緒化</button></div>
+								<div class="center aligned column"><button class="ts button" id='悲觀'
+										onclick="check('悲觀')">悲觀</button></div>
+								<div class="center aligned column"><button class="ts button" id='溫暖'
+										onclick="check('溫暖')">溫暖</button></div>
+							</div>
+							<div class="five column row">
+								<div class="center aligned column"><button class="ts button" id='自信'
+										onclick="check('自信')">自信</button></div>
+								<div class="center aligned column"><button class="ts button" id='幽默'
+										onclick="check('幽默')">幽默</button></div>
+								<div class="center aligned column"><button class="ts button" id='隨和'
+										onclick="check('隨和')">隨和</button></div>
+								<div class="center aligned column"><button class="ts button" id='負責任'
+										onclick="check('負責任')">負責任</button></div>
+								<div class="center aligned column"><button class="ts button" id='天真'
+										onclick="check('天真')">天真</button></div>
+							</div>
+							<div class="five column row">
+								<div class="center aligned column"><button class="ts button" id='保守'
+										onclick="check('保守')">保守</button></div>
+								<div class="center aligned column"><button class="ts button" id='拘謹'
+										onclick="check('拘謹')">拘謹</button></div>
+								<div class="center aligned column"><button class="ts button" id='勤奮'
+										onclick="check('勤奮')">勤奮</button></div>
+								<div class="center aligned column"><button class="ts button" id='含蓄'
+										onclick="check('含蓄')">含蓄</button></div>
+								<div class="center aligned column"><button class="ts button" id='謙虛'
+										onclick="check('謙虛')">謙虛</button></div>
+							</div>
+							<div class="five column row">
+								<div class="center aligned column"><button class="ts button" id='樂觀'
+										onclick="check('樂觀')">樂觀</button></div>
+								<div class="center aligned column"><button class="ts button" id='懶散'
+										onclick="check('懶散')">懶散</button></div>
+								<div class="center aligned column"><button class="ts button" id='驕傲'
+										onclick="check('驕傲')">驕傲</button></div>
+								<div class="center aligned column"><button class="ts button" id='不拘小節'
+										onclick="check('不拘小節')">不拘小節</button></div>
+								<div class="center aligned column"><button class="ts button" id='有效率'
+										onclick="check('有效率')">有效率</button></div>
+							</div>
+							<div class="five column row">
+								<div class="center aligned column"><button class="ts button" id='守規矩'
+										onclick="check('守規矩')">守規矩</button></div>
+								<div class="center aligned column"><button class="ts button" id='認真'
+										onclick="check('認真')">認真</button></div>
+								<div class="center aligned column"><button class="ts button" id='自私'
+										onclick="check('自私')">自私</button></div>
+								<div class="center aligned column"><button class="ts button" id='討人喜歡'
+										onclick="check('討人喜歡')">討人喜歡</button></div>
+								<div class="center aligned column"><button class="ts button" id='節儉'
+										onclick="check('節儉')">節儉</button></div>
+							</div>
+							<div class="five column row">
+								<div class="center aligned column"><button class="ts button" id='害羞'
+										onclick="check('害羞')">害羞</button></div>
+								<div class="center aligned column"><button class="ts button" id='憂慮'
+										onclick="check('憂慮')">憂慮</button></div>
+								<div class="center aligned column"><button class="ts button" id='冷漠'
+										onclick="check('冷漠')">冷漠</button></div>
+								<div class="center aligned column"><button class="ts button" id='有恆心'
+										onclick="check('有恆心')">有恆心</button></div>
+								<div class="center aligned column"><button class="ts button" id='內向'
+										onclick="check('內向')">內向</button></div>
+							</div>
+							<div class="five column row">
+								<div class="center aligned column"><button class="ts button" id='簡樸'
+										onclick="check('簡樸')">簡樸</button></div>
+								<div class="center aligned column"><button class="ts button" id='有耐心'
+										onclick="check('有耐心')">有耐心</button></div>
+								<div class="center aligned column"><button class="ts button" id='有主見'
+										onclick="check('有主見')">有主見</button></div>
+								<div class="center aligned column"><button class="ts button" id='穩重'
+										onclick="check('穩重')">穩重</button></div>
+								<div class="center aligned column"><button class="ts button" id='有條理'
+										onclick="check('有條理')">有條理</button></div>
+							</div>
+							<div class="five column row">
+								<div class="center aligned column"><button class="ts button" id='坦率'
+										onclick="check('坦率')">坦率</button></div>
+								<div class="center aligned column"><button class="ts button" id='誠實'
+										onclick="check('誠實')">誠實</button></div>
+								<div class="center aligned column"><button class="ts button" id='吝嗇'
+										onclick="check('吝嗇')">吝嗇</button></div>
+								<div class="center aligned column"><button class="ts button" id='壓抑'
+										onclick="check('壓抑')">壓抑</button></div>
+								<div class="center aligned column"><button class="ts button" id='常反省'
+										onclick="check('常反省')">常反省</button></div>
+							</div>
+							<div class="five column row">
+								<div class="center aligned column"><button class="ts button" id='獨立'
+										onclick="check('獨立')">獨立</button></div>
+								<div class="center aligned column"><button class="ts button" id='固執'
+										onclick="check('固執')">固執</button></div>
+								<div class="center aligned column"><button class="ts button" id='細心'
+										onclick="check('細心')">細心</button></div>
+							</div>
+							<div class="five column row">
+								<div class="center aligned column"></div>
+								<div class="center aligned column"></div>
+								<div class="center aligned column">
+									<!--onclick="location.href='G_token.html'"-->
+									<br/>
+									<input type="button" class="ts primary button" value="送出" target="main" id="Sumbit" style="width:250px;">
+									<!--a href="G_token" target="main" title=""送出/a-->
+								</div>
+							</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<br>
+
+
+		<script>
+			var N_name;
+			N_name = prompt("请输入你的名字:", "");
+			var test = ["nothing"];
+			var count = 0;
+			var x = document.getElementById("Sumbit");
+			x.addEventListener("click", makeRequest);
+
+			function makeRequest() {
+
+				t_Request = new XMLHttpRequest();
+
+				if (!t_Request) {
+					alert('Giving up :( Cannot create an XMLHTTP instance');
+					return false;
+				}
+				t_Request.onreadystatechange = function () {
+
+					if (t_Request.readyState == XMLHttpRequest.DONE) {
+						if (t_Request.status == 200) {
+							var response = this.responseText;
+							console.log(response);
+							checkToken(response);
+						}
+						else {
+							alert('There was a problem with the request.');
+						}
+					}
+				}
+				t_Request.open("POST", "http://csmu.oxygentw.net/tools/ap-apiv1/new/", true);
+				t_Request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				var myJSON = JSON.stringify(test);
+				t_Request.send("nickname=" + N_name + "&trait=" + myJSON);
+				setTimeout(function () { location.href = 'G_token.html' }, 1000);
+			}
+
+
+			function check(Object) {
+
+				for (var i = 0; i <= count; i++) {
+					var n;
+					switch (count) {
+						case i:
+							switch (count) {
+								case 0:
+									test = ["nothing"];
+									n = i;
+									break;
+								default:
+									n = (i - 1);
+							}
+							break;
+						default: n = i;
+					}
+					var c = test[n];
+					if (c.indexOf(Object) == 0) {
+						test.splice(i, 1);
+						count--;
+						document.getElementById(Object).setAttribute("class", "ts button");
+						//document.getElementById("demo").innerHTML = test;
+						break;
+					}
+					else if (i == count) {
+						test[count] = Object;
+						count++;
+						document.getElementById(Object).setAttribute("class", "ts active button");
+						//document.getElementById("demo").innerHTML = test;
+						break;
+					}
+
+				}
+			}
+
+		</script>
+
+</body>
+
+</html>

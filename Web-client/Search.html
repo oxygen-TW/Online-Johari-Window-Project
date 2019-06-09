@@ -1,0 +1,181 @@
+﻿<!--C:\wamp64\www-->
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tocas UI：CSS 與元件 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
+  <!-- Tocas JS：模塊與 JavaScript 函式 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
+  <!--https://i.pinimg.com/originals/9f/50/aa/9f50aa820d871667d69a7e34c68714c5.jpg-->
+  <style>
+    body {
+      background-image: url('http://localhost/Picture/59614538_p0_master1200.jpg');
+      background-repeat: no-repeat;
+      background-attachment: local;
+      background-position: center;
+      background-size: cover;
+    }
+  </style>
+  }
+  </style>
+</head>
+
+<body>
+  <div class="ts grid">
+    <div class="fifteen column row">
+      <div class="column"></div>
+    </div>
+    <div class="fifteen column row">
+      <div class="column">
+        <div class="ts  steps">
+          <div class="step">
+            <i class="write icon"></i>
+            <div class="content">
+              <div class="title">填寫</div>
+              <div class="description">周哈里窗表單</div>
+            </div>
+          </div>
+          <div class="ts step">
+            <i class="clone icon"></i>
+            <div class="content">
+              <div class="title">複製</div>
+              <div class="description">請記住代碼</div>
+            </div>
+          </div>
+          <div class="active step">
+            <i class="search icon"></i>
+            <div class="content">
+              <div class="title">查詢</div>
+              <div class="description">貼上您的代碼</div>
+            </div>
+          </div>
+          <div class="disabled step">
+            <i class="add user icon"></i>
+            <div class="content">
+              <div class="title">他人填寫</div>
+              <div class="description">請您的好友或家人為您填寫</div>
+            </div>
+          </div>
+          <div class="disabled step">
+            <i class="info icon"></i>
+            <div class="content">
+              <div class="title">結果</div>
+              <div class="description">觀看您的結果</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <table width="1450" height="550">
+    　<tr>
+      <td align="center" valign="center">
+        <div class="ts action input" id="S_Change">
+          <input type="text" placeholder="輸入_token" id="Input_S">
+          <button class="ts primary labeled icon button" id="Search" target="main">
+            <i class="search icon"></i>查詢</button>
+        </div>
+        <div class="ts hidden message" id=Display>
+          <div class="header">輸入錯誤</div>
+          <p>請查明後重新輸入</p>
+        </div>
+        </form>
+      </td>
+    </tr>
+  </table>
+  <br><br>
+  <!---------------
+<form action="search.php" method="get">
+<div class="ts error input" id="check">
+<input type="text" placeholder="輸入_token" id="_token">
+<button class="ts primary labeled icon button">
+        <i class="search icon"></i>查詢</button>
+</div>
+</form>
+--------------
+<br><br>
+
+<form action="search.php" method="get">
+<div class="ts input">
+    <input type="text" placeholder="搜尋..." name="搜尋"></div>
+    <button class="ts button"><input type="submit" value=""><i class="search icon"></i></button>
+
+</form>
+--------------
+<br><br>
+
+----------------
+<form action="search.php" method="get">
+<div class="ts icon input">
+    <input type="text" placeholder="搜尋..." name="link">
+   <i class="inverted circular search link icon"></i>
+</div>
+</form>
+
+---------------->
+  <script>
+    var x = document.getElementById("Search");
+    var y = document.getElementById("Input_S");
+    //x.addEventListener("click",C_Store);
+    x.addEventListener("click", makeRequest);
+    y.addEventListener("click", Change);
+
+    function Change() {
+      document.getElementById("S_Change").className = "ts action input";
+      document.getElementById("Display").className = "ts hidden message";
+    }
+    /*function Store()
+    {
+        var T_V=document.getElementById('token_V').value;
+        alert(T_V);
+        setCookie("_token",T_V,1);
+        window.location.assign("S_Chang.html");
+    }*/
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays * 60 * 60 * 1000));
+      var expires = "expires=" + d.toGMTString();
+      document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+    function makeRequest() {
+
+      t_Request = new XMLHttpRequest();
+
+      if (!t_Request) {
+        alert('Giving up :( Cannot create an XMLHTTP instance');
+        return false;
+      }
+      t_Request.onreadystatechange = function () {
+
+        if (t_Request.readyState == XMLHttpRequest.DONE) {
+          if (t_Request.status == 200) {
+            var response = this.responseText;
+            //var R_After_Decode=htmldecode(response);
+            console.log(response);
+            var Judage = response.search('"success":"false"');
+            if (Judage != -1) {
+              document.getElementById("S_Change").className = "ts error input"
+              document.getElementById("Display").className = "ts negative message";
+            }
+            else {
+              setCookie("_token", T_V, 1);
+              window.location.assign("S_Chang.html");
+            }
+          }
+          else {
+            alert('There was a problem with the request.');
+            document.getElementById("Display").className = "ts negative message";
+          }
+        }
+      }
+      t_Request.open("POST", "http://csmu.oxygentw.net/tools/ap-apiv1/result/"/*"http://localhost/api/new.php"*/, true);
+      t_Request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      var T_V = document.getElementById('Input_S').value;
+      // alert(T_V);
+      t_Request.send("token=" + T_V);
+    }
+  </script>
+</body>
+
+</html>

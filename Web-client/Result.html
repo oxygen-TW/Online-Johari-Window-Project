@@ -1,0 +1,378 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Tocas UI：CSS 與元件 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
+    <!-- Tocas JS：模塊與 JavaScript 函式 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
+    <script type="text/javascript">
+        function check_all() {
+            for (var i = 1; i <= 3; i++) {
+                var N = "toggle" + i;
+                document.getElementById(N).checked = true;
+            }
+            document.getElementById("A_Check").setAttribute("class", "ts active button");
+        }
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+            }
+            return "";
+        }
+        function CheckContent(N, ccname) {
+            var test = getCookie(ccname);
+            var x = document.getElementsByName(N)[0];
+            test = JSON.parse(test);
+            if (test != "" && test != null && test != "???") {
+                x.innerHTML = test;
+                x.style.fontsize = "xx-large";
+            }
+            else if (test == "") {
+            x.innerHTML = "無";
+                x.style.color = "#9d9d9d";
+            }
+            else if (test == "???") {
+            x.innerHTML = test;
+                x.style.color = "#9d9d9d";
+            }
+            else {
+                x.innerHTML = "尚未建立";
+                x.style.color = "#ff0000";
+            }
+        }
+    </script>
+</head>
+
+<head>
+    <style>
+        body {
+            background-image: url('http://localhost/Picture/S__7438635.jpg');
+            background-repeat: no-repeat;
+            background-attachment: local;
+            background-position: center;
+            background-size: cover;
+        }
+
+        td.B_g1 {
+            background-image: url('http://localhost/Picture/images.jpg');
+            background-repeat: no-repeat;
+            background-attachment: local;
+            background-position: center;
+            background-size: cover;
+        }
+
+        td.B_g2 {
+            background-image: url('http://localhost/Picture/下載.jpg');
+            background-repeat: no-repeat;
+            background-attachment: local;
+            background-position: center;
+            background-size: cover;
+            color: #c6a300;
+        }
+
+        div.b {
+            border: 30px solid transparent;
+            width: 200px;
+            padding: 10px 30px;
+            color: #f1e1ff;
+
+            background-image: url('http://localhost/Picture/images (1).jpg');
+            background-repeat: no-repeat;
+            background-attachment: local;
+            background-position: center;
+            background-size: cover;
+        }
+
+        #round {
+
+            -webkit-border-image: url(Picture/5ac1ec7ec581b.png) 500 420 stretch;
+            -o-border-image: url(Picture/5ac1ec7ec581b.png) 500 420 stretch;
+            border-image: url(Picture/5ac1ec7ec581b.png) 500 420 stretch;
+
+
+        }
+
+        .base {
+            border: 5px groove yellow;
+            width: 60%;
+            border-collapse: collapse;
+            box-shadow: 10px 10px 5px #888888;
+
+        }
+
+        #th_b {
+            border: 5px groove yellow;
+            border-color: green;
+            height: 50px;
+            background-color: green;
+            color: white;
+        }
+
+        #td_b {
+            border: 5px groove yellow;
+            text-align: left;
+            height: 100px;
+
+        }
+
+        .S_s {
+            width: 300px;
+            height: 100px;
+            border: 1px solid blue;
+        }
+
+        .S_d {
+            width: 300px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ts grid">
+        <div class="fifteen column row">
+            <div class="column"></div>
+        </div>
+        <div class="fifteen column row">
+            <div class="column">
+                <div class="ts  steps">
+                    <div class="step">
+                        <i class="write icon"></i>
+                        <div class="content">
+                            <div class="title">填寫</div>
+                            <div class="description">周哈里窗表單</div>
+                        </div>
+                    </div>
+                    <div class="ts step">
+                        <i class="clone icon"></i>
+                        <div class="content">
+                            <div class="title">複製</div>
+                            <div class="description">請記住代碼</div>
+                        </div>
+                    </div>
+                    <div class="ts step">
+                        <i class="search icon"></i>
+                        <div class="content">
+                            <div class="title">查詢</div>
+                            <div class="description">貼上您的代碼</div>
+                        </div>
+                    </div>
+                    <div class="ts step">
+                        <i class="add user icon"></i>
+                        <div class="content">
+                            <div class="title">他人填寫</div>
+                            <div class="description">請您的好友或家人為您填寫</div>
+                        </div>
+                    </div>
+                    <div class="active step">
+                        <i class="info icon"></i>
+                        <div class="content">
+                            <div class="title">結果</div>
+                            <div class="description">觀看您的結果</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table width="1450" height="550">
+        <tr>
+            <td align="center" valign="center">
+                <div id="round" class="b">以下為您的結果:</div>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="center">
+                <table class="base">
+                    <tr>
+                        <td id="td_b" class="B_g1"></td>
+                        <th id="th_b">自己知道</th>
+                        <th id="th_b">自己未知</th>
+                    </tr>
+                    <tr>
+                        <th id="th_b">他人知道<a href="P_List_O.html">(編輯)</a></th>
+                        <td id="td_b" class="B_g2" name="O">開放我</td>
+                        <td id="td_b" class="B_g2" name="Ct">盲目我</td>
+                    </tr>
+                    <tr>
+                        <th id="th_b">他人未知</th>
+                        <td id="td_b" class="B_g2" name="H">隱藏我</td>
+                        <td id="td_b" class="B_g2" name="U">未知我</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="center">
+                <button class="ts pulsing button" name="Submit" onclick="javascript:history.back(-1);">返回上一頁</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        CheckContent("O", "開放我");
+        CheckContent("H", "隱藏我");
+        CheckContent("Ct", "盲目我");
+        CheckContent("U", "未知我");
+    </script>
+
+    <!--
+<div style="border-width:1px;border-style:solid;">
+   測試邊框樣式
+   </div>
+<table>
+<tr><td><div class="S_s">这个是个较小的框 (width 为 300px ，height 为 100px)。 </div></td><td>
+<div class="S_d">这个是个较大的框 (width 为 300px ，height 为 100px)。</div></td></tr>
+</table>
+<table style="border-width:3px;
+border-color:#FFAC55;
+border-style:solid;"
+cellpadding="10" border='1' >
+<tr><td>這是表格欄位</td><td>這是表格欄位</td><td>這是表格欄位</td></tr>
+</table>
+
+
+<table style="border-width:3px;
+border-style:dashed;
+border-top-style:hidden; border-bottom-style:hidden;
+border-color:#FFD382;"
+cellpadding="10" border='1'>
+<tr><td>這是表格欄位</td><td>1</td><td>4564646</td></tr>
+</table>
+
+<table style="border-width:3px;
+border-style:dashed;
+border-color:#FFD382;"
+cellpadding="10" border='1'>
+<tr><td>這是表格欄位</td><td>這是表格欄位</td><td>這是表格欄位</td></tr>
+</table>
+<table class="ts very basic collapsing celled table">
+<thead>
+<tr>
+   <th>填寫者</th>
+   <th>填寫項目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+   <td>
+       <h6 class="ts image header">
+           <img class="ts mini rounded image" src="Picture/user.png">
+           <div class="content">
+               暱稱
+               <div class="sub header">自己</div>
+           </div>
+       </h6>
+   </td>
+   <td>
+       自我認為
+   </td>
+</tr>
+<tr>
+   <td>
+       <h6 class="ts image header">
+           <img class="ts mini rounded image" src="Picture/user.png">
+           <div class="content">
+               暱稱
+               <div class="sub header">他人</div>
+           </div>
+       </h6>
+   </td>
+   <td>
+       他人認為
+   </td>
+</tr>
+</tbody>
+</table>
+<table class="ts definition table">
+<thead>
+   <tr>
+       <th></th>
+       <th>自己知道</th>
+       <th>自己未知</th>
+   </tr>
+</thead>
+<tbody>
+   <tr>
+       <td>他人知道</td>
+       <td>title[<em>string</em>]</td>
+       <td>輸出網頁標頭。</td>
+   </tr>
+   <tr>
+       <td>他人未知</td>
+       <td class="warning">path[<em>string</em>], name[<em>string</em>[<em>optional</em>]]</td>
+       <td class="warning">於網頁最底部輸出內容，可同時儲存內容至一個檔案。</td>
+   </tr>
+</tbody>
+</table>
+<br>
+<table class="ts compact celled definition table">
+<thead>
+   <tr>
+       <th></th>
+       <th>暱稱</th>
+       <th>填寫日期</th>
+      
+   </tr>
+</thead>
+<tbody>
+   <tr>
+       <td class="collapsing">
+           <div class="ts toggle checkbox">
+               <input type="checkbox" id="toggle1">
+               <label for="toggle1"></label>
+           </div>
+       </td>
+       <td>暱稱</td>
+       <td>日期</td>
+      
+   </tr>
+   <tr>
+       <td class="collapsing">
+           <div class="ts toggle checkbox">
+               <input type="checkbox" id="toggle2">
+               <label for="toggle2"></label>
+           </div>
+       </td>
+       <td>暱稱</td>
+       <td>日期</td>
+     
+   </tr>
+   <tr>
+       <td class="collapsing">
+           <div class="ts toggle checkbox">
+               <input type="checkbox" id="toggle3">
+               <label for="toggle3"></label>
+           </div>
+       </td>
+       <td>暱稱</td>
+       <td>日期</td>
+      
+   </tr>
+</tbody>
+<tfoot class="full-width">
+   <tr>
+       <th></th>
+       <th colspan="2">
+           <div class="ts small button">
+                   <input type="submit" value="提交">
+           </div>
+           <button class="ts small button" onclick="check_all()" id="A_Check">
+               全部選取
+           </button>
+           <div class="ts right floated small primary labeled icon button">
+                   <i class="user icon"></i> 新增
+               </div>
+       </th>
+   </tr>
+</tfoot>
+</table>
+-->
+</body>
+
+</html>

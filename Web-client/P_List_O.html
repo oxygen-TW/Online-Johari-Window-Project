@@ -187,7 +187,6 @@ background-size: cover;
 					<div class="center aligned column"><button class="ts button" id='細心' onclick="check('細心')">細心</button></div>
 					</div>
 <div class="five column row">
-		<p id="demo">無</p>
 </div>
 					<div class="five column row">
 					<div class="center aligned column"></div>
@@ -260,14 +259,14 @@ function check(Object){
 				test.splice(i,1);
 				count--;
 				document.getElementById(Object).setAttribute("class","ts button");
-				document.getElementById("demo").innerHTML = test;
+				//document.getElementById("demo").innerHTML = test;
 				break;
 			      			  }	     
 			else if(i==count){
 				test[count]=Object;
 				count++;
 				document.getElementById(Object).setAttribute("class","ts active button");
-				document.getElementById("demo").innerHTML = test;
+				//document.getElementById("demo").innerHTML = test;
 				break;
 			    }
 
